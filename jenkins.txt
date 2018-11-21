@@ -1,0 +1,40 @@
+Git and github Integration with jenkins
+	Source code management-Git(repository URL)
+	Build Triggers - Poll SCM(* * * * *)
+	Build Environment - Delete workspace(in order to delete the workspace for each run of the job)
+	Build - Execute Windows batch command(windows) and Execute shell(for linux)
+
+Configuring System Environment
+	Manage jenkins-->Configure System
+	Home directory(where files are stored)-copy the path and cd it in cmd u can c the files.
+	System Message(which to be displayed in home page)-initially it is plain text
+		-you can chnge it to html by going to configure global security
+		-select markup language as safe html.
+	# of executors- no. of jobs to be runned parallely
+	Quiet period- after how much time the job should start(it will be in seconds)
+	SCM checkout retry count- no. of times to try to connect to github before showing error message.
+	Restrict project naming- For naming convention.
+	Global properties- for environment variable and tool location 
+
+How to setup jenkins for Maven project
+  Configuration
+	General
+		Description
+		GitHub project
+	Source Code Management
+		GIT
+	Build Triggers
+		GitHub hook trigger for GITScm polling
+	Build Environment
+		Delete workspace before build starts
+	Build
+		invoke top level Maven targets
+
+  Global tool configuration
+	JDK-JDK installations--> set JAVA_HOME path
+	Maven-Maven installations--> set MAVEN_HOME path
+
+e-mail notification
+	configuration-->E-mail and extended email notification
+	Give the information as required 
+	when the job fails email will be sent if u chnage the configuration of that particular job.
